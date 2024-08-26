@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
-</head>
-<body>
-    <h1>Snake Game</h1>
-    <div id="pygame-container"></div>
     <script>
         async function main() {
             let pyodide = await loadPyodide({
-                indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+                indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
             });
             await pyodide.loadPackage("pygame");
             pyodide.runPython(await (await fetch("snake_g_06.py")).text());
         }
         main();
     </script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+</head>
+<body>
+    <h1>Snake Game</h1>
+    <div id="pygame-container"></div>
 </body>
 </html>
