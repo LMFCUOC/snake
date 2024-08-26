@@ -11,11 +11,10 @@
     <div id="pygame-container"></div>
     <script>
         async function main() {
-            // Cargar Pyodide
-            let pyodide = await loadPyodide();
-            // Cargar el paquete de Pygame
+            let pyodide = await loadPyodide({
+                indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+            });
             await pyodide.loadPackage("pygame");
-            // Ejecutar el código Python del archivo snake_game.py
             pyodide.runPython(await (await fetch("snake_g_06.py")).text());
         }
         main();
