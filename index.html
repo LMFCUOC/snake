@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+</head>
+<body>
+    <h1>Snake Game</h1>
+    <div id="pygame-container"></div>
+    <script>
+        async function main() {
+            // Cargar Pyodide
+            let pyodide = await loadPyodide();
+            // Cargar el paquete de Pygame
+            await pyodide.loadPackage("pygame");
+            // Ejecutar el código Python del archivo snake_game.py
+            pyodide.runPython(await (await fetch("snake_g_06.py")).text());
+        }
+        main();
+    </script>
+</body>
+</html>
